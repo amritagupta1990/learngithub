@@ -1,0 +1,25 @@
+<div id="reg-container">
+	<h1>Register Your Account!</h1>
+
+	<div id="body">
+		<form name="add_form" novalidate ng-submit="addUser(add_form.$valid)">
+		  <div class="form-group" ng-class="(add_form.$submitted && add_form.name.$error.required)? 'has-error': ''">
+		    <label for="name">Name:</label>
+		    <input type="textbox" class="form-control" id="name" ng-model="name" name="name" required>
+		    <span class="error" ng-show="add_form.$submitted && add_form.name.$error.required">Required!</span>
+		  </div>
+		  <div class="form-group" ng-class="(add_form.$submitted && add_form.email.$error.required)? 'has-error': ''">
+		    <label for="email">Email:</label>
+		    <input type="email" class="form-control" name="email" id="email" ng-model="email" required>
+		    <span class="error" ng-show="add_form.$submitted && add_form.email.$error.required">Required!</span>
+		  </div>
+		  <div class="form-group" ng-class="(add_form.$submitted && add_form.address.$error.required)? 'has-error': ''">
+		    <label for="add">Address:</label>
+		    <textarea class="form-control" id="add" ng-model="address" name="address" required></textarea>
+		    <span class="error" ng-show="add_form.$submitted && add_form.address.$error.required">Required!</span>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+		<p>Already Registered?<a href="#!/login">Login</a></p>
+	</div>
+</div>
