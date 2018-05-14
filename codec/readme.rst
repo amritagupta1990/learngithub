@@ -82,7 +82,7 @@ contributors to the CodeIgniter project and you, the CodeIgniter user.
 My comments
 ******************
 checking the second branch in github.
-Another challenge.
+
 Checking the branch Development.
 Comments not working.
 
