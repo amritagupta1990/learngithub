@@ -32,10 +32,25 @@ class Welcome extends CI_Controller {
 			$email = $request->email;
 			$name = $request->name;
 			$address = $request->address;
-			$i='1';
-			$txt = $i."|".$name."|".$email."|".$address."\n";
- 			$myfile = file_put_contents('db.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
- 			print_r($myfile);
+			try {
+
+				if(file_exists(getcwd()."/db.txt")){
+					$data = file(getcwd()."/db.txt");
+					print_r($data);
+					$line = $data[count($data)-2];
+					$line_arr = explode('|', $line);
+					$i = ($line_arr[0]!='')? $line_arr[0]+1 : 1;
+				}
+				else{
+					$i =1;
+				}
+				$txt = $i."|".$name."|".$email."|".$address."\n";
+	 			$myfile = file_put_contents('db.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+	 			print_r($myfile);
+	 		}
+	 		catch(Exception $e) {
+           	 echo $e->getMessage();
+        	}
 
 
 		}
