@@ -2,7 +2,7 @@
 	"use strict";
      var appMod = angular.module('testApp', ['ngRoute']);
      appMod.constant('constants',{
-     	'API_URL': 'http://localhost/test/codec/index.php/'
+     	'API_URL': 'http://localhost/learngithub/codec/index.php/'
      })
      .config(function ($routeProvider, $locationProvider){
      	$routeProvider

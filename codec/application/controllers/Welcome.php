@@ -26,7 +26,17 @@ class Welcome extends CI_Controller {
 	{
 		
 		if ($this->input->server('REQUEST_METHOD') == 'POST'){
-			echo $this->input->post('name');
+
+			$postdata = file_get_contents("php://input");
+			$request = json_decode($postdata);
+			$email = $request->email;
+			$name = $request->name;
+			$address = $request->address;
+			$txt = $name."|".$email."|".$address."\n";
+ 			$myfile = file_put_contents('db.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+ 			print_r($myfile);
+
+
 		}
 		else{
 			//$this->response(null, 405);
