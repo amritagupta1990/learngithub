@@ -32,7 +32,8 @@ class Welcome extends CI_Controller {
 			$email = $request->email;
 			$name = $request->name;
 			$address = $request->address;
-			$txt = $name."|".$email."|".$address."\n";
+			$i='1';
+			$txt = $i."|".$name."|".$email."|".$address."\n";
  			$myfile = file_put_contents('db.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
  			print_r($myfile);
 
